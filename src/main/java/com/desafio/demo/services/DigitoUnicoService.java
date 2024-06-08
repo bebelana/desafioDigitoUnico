@@ -1,8 +1,6 @@
 package com.desafio.demo.services;
 
-import com.desafio.demo.models.DigitoUnico;
-import com.desafio.demo.models.Usuario;
-import com.desafio.demo.repositories.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.desafio.demo.controllers;
 
 
-import com.desafio.demo.models.DigitoUnico;
+
 import com.desafio.demo.models.Usuario;
 import com.desafio.demo.services.CacheCalculosService;
 import com.desafio.demo.services.DigitoUnicoService;
@@ -41,6 +41,6 @@ public class UsuarioController {
         usuarioService.deletaUsuarioId(id);
     }
 
-   
+
 }
    
