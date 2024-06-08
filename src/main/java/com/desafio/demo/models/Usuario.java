@@ -18,6 +18,10 @@ public class Usuario {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DigitoUnico> resultados;
 
+    public Usuario(){
+
+    }
+
     public Usuario(String nome, String email, List<DigitoUnico> listaResultado){
         super();
         this.nome = nome;
