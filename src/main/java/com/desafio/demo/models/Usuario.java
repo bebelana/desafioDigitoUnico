@@ -56,8 +56,8 @@ public class Usuario {
         return resultados;
     }
 
-    public void setResultados(List<DigitoUnico> listaResultado) {
-        this.resultados = listaResultado;
+    public void adicionarResultado(DigitoUnico resultado) {
+        this.resultados.add(resultado);
     }
 
 }

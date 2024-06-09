@@ -12,6 +12,12 @@ public class DigitoUnicoService {
 
 
     public int calculaDigitoUnico(String n, int c) {
+        String key = n + ":" + c;
+        Integer cachedResult = cache.get(key);
+        if (cachedResult != null) {
+            return cachedResult;
+        }
+
         int somaInicial = somaDigitos(n);
         int somaTotal = somaInicial * c;
         return digitoUnicoRecursivo(somaTotal);

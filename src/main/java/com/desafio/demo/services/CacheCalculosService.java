@@ -7,20 +7,21 @@ import java.util.Map;
 
 @Service
 public class CacheCalculosService {
+    private static final int MAX_ENTRIES = 10;
+    private Map<String, Integer> cache;
 
-    private static final int CACHE_SIZE = 10;
-    private final LinkedHashMap<String, String> cache = new LinkedHashMap<String, String>(CACHE_SIZE, 0.75f, true) {
-        @Override
-        protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
-            return size() > CACHE_SIZE;
-        }
-    };
-
-    public String get(String key) {
+    public CacheCalculosService() {
+        this.cache = new LinkedHashMap<String, Integer>(MAX_ENTRIES + 1, 1.0f, true) {
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return size() > MAX_ENTRIES;
+            }
+        };
+    }
+    public Integer get(String key) {
         return  cache.get(key);
     }
 
-    public void put(String key, String value) {
+    public void put(String key, Integer value) {
         cache.put(key, value);
     }
 
