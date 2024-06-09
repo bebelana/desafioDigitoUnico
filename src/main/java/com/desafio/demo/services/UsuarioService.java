@@ -1,10 +1,13 @@
 package com.desafio.demo.services;
 
 
+import com.desafio.demo.models.DigitoUnico;
 import com.desafio.demo.models.Usuario;
 import com.desafio.demo.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -25,6 +28,17 @@ public class UsuarioService {
 
     public  void deletaUsuarioId(int id) {
         usuarioRepository.deleteById(id);
+    }
+
+    public Usuario adicionarResultado(int id, DigitoUnico resultado) {
+        Usuario usuario = getUsuarioId(id);
+        usuario.getResultados().add(resultado);
+        return usuarioRepository.save(usuario);
+    }
+
+    public List<DigitoUnico> getResultados(int id) {
+        Usuario usuario = getUsuarioId(id);
+        return usuario.getResultados();
     }
 
 }

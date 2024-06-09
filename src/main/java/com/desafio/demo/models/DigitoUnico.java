@@ -14,6 +14,7 @@ public class DigitoUnico {
     private int c;
     private int resultado;
 
+    public DigitoUnico(){}
     public DigitoUnico(String n, int c, int resultado) {
         this.n = n;
         this.c = c;
