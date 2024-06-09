@@ -28,16 +28,33 @@ public class UsuarioController {
     public Usuario getUsuarioId(@PathVariable int id) {
         return usuarioService.getUsuarioId(id);
     }
+    @GetMapping("/{id}/descriptografado")
+    public Usuario getUsuarioIdDescrip(@PathVariable int id) throws Exception {
+        return usuarioService.getUsuarioIdDesc(id);
+    }
+
+    @GetMapping("/")
+    public  List<Usuario> getUsuarios(){
+        return usuarioService.getUsuarios();
+    }
 
     @PostMapping
     public Usuario criaUsuario(@RequestBody Usuario Usuario) {
-        return usuarioService.salva(Usuario);
+        try {
+            return usuarioService.salva(Usuario);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @PutMapping("/{id}")
     public Usuario updateUsuario(@PathVariable int id, @RequestBody Usuario Usuario) {
-        Usuario.setId(id);
-        return usuarioService.salva(Usuario);
+        try {
+            Usuario.setId(id);
+            return usuarioService.salva(Usuario);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @DeleteMapping("/{id}")
