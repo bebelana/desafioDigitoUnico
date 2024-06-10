@@ -88,6 +88,9 @@ public class UsuarioService {
 
     public Usuario adicionarResultado(int id, DigitoUnico resultado) {
         Usuario usuario = getUsuarioId(id);
+        if (usuario.getResultados() == null) {
+            usuario.adicionarResultado(new DigitoUnico());
+        }
         usuario.getResultados().add(resultado);
         return usuarioRepository.save(usuario);
     }

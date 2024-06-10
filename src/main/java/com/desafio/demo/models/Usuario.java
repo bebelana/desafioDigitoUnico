@@ -1,6 +1,7 @@
 package com.desafio.demo.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Usuario {
     private List<DigitoUnico> resultados;
 
     public Usuario(){
-
+        this.resultados = new ArrayList<>();
     }
 
     public Usuario(String nome, String email, List<DigitoUnico> listaResultado){
